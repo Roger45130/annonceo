@@ -2998,74 +2998,88 @@ Copyright (c) 2015 Daniel Eden
       min-height: 100vh;
       height: auto; }
   
-  .sidebar,
-  .off-canvas-sidebar {
-    position: fixed;
-    top: 0;
-    height: 100%;
-    bottom: 0;
-    width: 260px;
-    left: 0;
-    z-index: 1030;
-    border-right: 1px solid #ddd; }
-    .sidebar .sidebar-wrapper,
-    .off-canvas-sidebar .sidebar-wrapper {
-      position: relative;
-      height: calc(100vh - 75px);
-      overflow: auto;
-      width: 260px;
-      z-index: 4;
-      padding-bottom: 100px; }
+      .sidebar,
+      .off-canvas-sidebar {
+          position: fixed;
+          top: 0;
+          height: 100%;
+          bottom: 0;
+          width: 20%;
+          left: 0;
+          z-index: 1030;
+          border-right: 1px solid #ddd;
+      }
+      .sidebar .sidebar-wrapper,
+      .off-canvas-sidebar .sidebar-wrapper {
+          position: relative;
+          height: calc(100vh - 75px);
+          overflow: auto;
+          width: 20%;
+          z-index: 4;
+          padding-bottom: 100px;
+      }
       .sidebar .sidebar-wrapper .dropdown .dropdown-backdrop,
       .off-canvas-sidebar .sidebar-wrapper .dropdown .dropdown-backdrop {
-        display: none !important; }
+          display: none !important;
+      }
       .sidebar .sidebar-wrapper .navbar-form,
       .off-canvas-sidebar .sidebar-wrapper .navbar-form {
-        border: none; }
-    .sidebar .navbar-minimize,
-    .off-canvas-sidebar .navbar-minimize {
-      position: absolute;
-      right: 20px;
-      top: 2px;
-      opacity: 1; }
-    .sidebar .logo-tim,
-    .off-canvas-sidebar .logo-tim {
-      border-radius: 50%;
-      border: 1px solid #333;
-      display: block;
-      height: 61px;
-      width: 61px;
-      float: left;
-      overflow: hidden; }
+          border: none;
+      }
+      .sidebar .navbar-minimize,
+      .off-canvas-sidebar .navbar-minimize {
+          position: absolute;
+          right: 20px;
+          top: 2px;
+          opacity: 1;
+      }
+      .sidebar .logo-tim,
+      .off-canvas-sidebar .logo-tim {
+          border-radius: 50%;
+          border: 1px solid #333;
+          display: block;
+          height: 61px;
+          width: 61px;
+          float: left;
+          overflow: hidden;
+      }
       .sidebar .logo-tim img,
       .off-canvas-sidebar .logo-tim img {
-        width: 60px;
-        height: 60px; }
-    .sidebar .nav,
-    .off-canvas-sidebar .nav {
-      margin-top: 20px;
-      display: block; }
+          width: 60px;
+          height: 60px;
+      }
+      .sidebar .nav,
+      .off-canvas-sidebar .nav {
+          margin-top: 20px;
+          display: block;
+      }
       .sidebar .nav .caret,
       .off-canvas-sidebar .nav .caret {
-        top: 14px;
-        position: absolute;
-        right: 10px; }
+          top: 14px;
+          position: absolute;
+          right: 10px;
+      }
       .sidebar .nav li > a + div .nav li > a,
       .off-canvas-sidebar .nav li > a + div .nav li > a {
-        margin-top: 7px; }
+          margin-top: 7px;
+      }
       .sidebar .nav li > a,
       .off-canvas-sidebar .nav li > a {
-        margin: 10px 15px 0;
-        color: #FFFFFF;
-        display: block;
-        text-decoration: none;
-        position: relative;
-        text-transform: uppercase;
-        cursor: pointer;
-        font-size: 12px;
-        padding: 10px 8px;
-        line-height: 30px;
-        opacity: .7; }
+          margin: 10px 15px 2rem;
+          color: #FFFFFF;
+          display: block;
+          text-decoration: none;
+          position: relative;
+          text-transform: uppercase;
+          cursor: pointer;
+          font-size: 12px;
+          padding: 10px 8px;
+          line-height: 30px;
+          opacity: .7;
+      }
+      .sidebar {
+          background-color: rgba(0, 0, 0, 0.65);
+      }      
       .sidebar .nav li .nav > li > a,
       .off-canvas-sidebar .nav li .nav > li > a {
         padding: 5px 8px; }
@@ -4217,3 +4231,6 @@ Copyright (c) 2015 Daniel Eden
   
   /*# sourceMappingURL=paper-dashboard.css.map */
   
+  .logo-image-small {
+    width: 150px;
+  }
