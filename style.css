@@ -1,0 +1,104 @@
+
+/* Footer */
+.footer_section {
+    padding: 20px 0;
+    background-color: #f8f9fa; /* Couleur de fond pour le footer */
+}
+
+.container {
+    width: auto;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -15px; /* Compensation pour les paddings des colonnes */
+}
+
+.col-md-2, .col-md-3 {
+    padding: 15px; /* Espacement entre les colonnes */
+    box-sizing: border-box;
+}
+
+.col-md-2 {
+    flex: 0 0 20%; /* Largeur de 20% pour les colonnes vides */
+}
+
+.col-md-3 {
+    flex: 0 0 20%; /* Largeur de 30% pour les colonnes de contenu */
+}
+
+/* Style pour la deuxième colonne */
+.footer_contact h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.contact_link_box a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.contact_link_box i {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.contact_link_box span {
+    font-size: 14px;
+}
+
+/* Style pour la troisième colonne */
+.footer_detail h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.footer_detail p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.footer_detail h5 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.footer_social {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer_social a {
+    color: #333;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.footer_social a:hover {
+    color: #0073e6;
+}
+
+/* Style pour la quatrième colonne */
+.map_container h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.map iframe {
+    width: 100%;
+    height: 225px;
+    border: none;
+}
+
+/* Suppression des soulignements et bordures */
+a, li, span, i {
+    text-decoration: none;
+    border: none;
+}
+

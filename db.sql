@@ -11,8 +11,9 @@ CREATE TABLE `membre` (
   telephone VARCHAR(20) NOT NULL,
   email VARCHAR(50) NOT NULL,
   civilite ENUM('m','f') NOT NULL,
-  statut CHAR(1) NOT NULL,
+  statut INT(1) NOT NULL,
   date_enregistrement DATETIME NOT NULL,
+  id_role ENUM('user','admin') NOT NULL,
   PRIMARY KEY (id_membre)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -28,10 +29,11 @@ CREATE TABLE `categorie` (
   id_categorie INT(3) NOT NULL AUTO_INCREMENT,
   titre VARCHAR(255) NOT NULL,
   motscles TEXT NOT NULL,
+  role_id ENUM('user','admin') NOT NULL,
   PRIMARY KEY (id_categorie)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-ALTER TABLE `categorie` ADD CONSTRAINT FK_Annonce FOREIGN KEY (membre_id) REFERENCES membre(id_membre) ON UPDATE RESTRICT ON DELETE RESTRICT;
+ALTER TABLE `categorie` ADD CONSTRAINT FK_Membre FOREIGN KEY (role_id) REFERENCES membre(id_role) ON UPDATE RESTRICT ON DELETE RESTRICT;
 
 CREATE TABLE `photo` (
   id_photo INT(3) NOT NULL AUTO_INCREMENT,
@@ -40,10 +42,13 @@ CREATE TABLE `photo` (
   photo3 VARCHAR(255) NOT NULL,
   photo4 VARCHAR(255) NOT NULL,
   photo5 VARCHAR(255) NOT NULL,
+  role_id ENUM('user','admin') NOT NULL,
   PRIMARY KEY (id_photo)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-ALTER TABLE `photo` ADD CONSTRAINT FK_Annonce FOREIGN KEY (photo_id) REFERENCES membre(id_photo) ON UPDATE RESTRICT ON DELETE RESTRICT;
+ALTER TABLE `photo` ADD CONSTRAINT FK_Annonce FOREIGN KEY (photo_id) REFERENCES photo(id_photo) ON UPDATE RESTRICT ON DELETE RESTRICT;
+
+ALTER TABLE `photo` ADD CONSTRAINT FK_Membre FOREIGN KEY (role_id) REFERENCES membre(id_role) ON UPDATE RESTRICT ON DELETE RESTRICT;
 
 CREATE TABLE `commentaire` (
   id_commentaire INT(3) NOT NULL AUTO_INCREMENT,
@@ -51,10 +56,13 @@ CREATE TABLE `commentaire` (
   annonce_id INT(3) NOT NULL,
   commentaire TEXT NOT NULL,
   date_enregistrement DATETIME NOT NULL,
+  role_id ENUM('user','admin') NOT NULL,
   PRIMARY KEY (id_commentaire)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-ALTER TABLE `commentaire` ADD CONSTRAINT FK_annonce FOREIGN KEY (commentaire_id) REFERENCES commentaire(id_commentaire) ON UPDATE RESTRICT ON DELETE RESTRICT;
+ALTER TABLE `commentaire` ADD CONSTRAINT FK_Annonce FOREIGN KEY (commentaire_id) REFERENCES commentaire(id_commentaire) ON UPDATE RESTRICT ON DELETE RESTRICT;
+
+ALTER TABLE `commentaire` ADD CONSTRAINT FK_Membre FOREIGN KEY (role_id) REFERENCES membre(id_role) ON UPDATE RESTRICT ON DELETE RESTRICT;
 
 CREATE TABLE `note` (
   id_note INT(3) NOT NULL AUTO_INCREMENT,
@@ -63,8 +71,11 @@ CREATE TABLE `note` (
   note INT(3) NOT NULL,
   avis VARCHAR(20) NOT NULL,
   date_enregistrement DATETIME NOT NULL,
+  role_id ENUM('user','admin') NOT NULL,
   PRIMARY KEY (id_note)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE `note` ADD CONSTRAINT FK_Membre FOREIGN KEY (role_id) REFERENCES membre(id_role) ON UPDATE RESTRICT ON DELETE RESTRICT;
 
 CREATE TABLE `annonce` (
   id_annonce INT(3) NOT NULL AUTO_INCREMENT,
@@ -80,5 +91,10 @@ CREATE TABLE `annonce` (
   photo_id INT(3) NOT NULL,
   categorie_id INT(3) NOT NULL,
   date_enregistrement DATETIME NOT NULL,
+  role_id ENUM('user','admin') NOT NULL,
   PRIMARY KEY (id_annonce)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE `annonce` ADD CONSTRAINT FK_Membre FOREIGN KEY (role_id) REFERENCES membre(id_role) ON UPDATE RESTRICT ON DELETE RESTRICT;
+
+ALTER TABLE `annonce` ADD CONSTRAINT FK_Categorie FOREIGN KEY (categorie_id) REFERENCES categorie(id_categorie) ON UPDATE RESTRICT ON DELETE RESTRICT;
